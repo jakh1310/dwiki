@@ -73,6 +73,10 @@ const mutations = {
     })
     state.db.set('categories', categories)
     updateInformation(state)
+  },
+  editCategory (state, payload) {
+    state.db.set('categories.' + wt.formatTitle(payload.name), payload)
+    updateInformation(state)
   }
 }
 
@@ -99,6 +103,11 @@ const getters = {
   // Check if an article exists in the wiki 
   checkArticle: (state, getters) => (name) => {
     return state.db.has('articles.' + wt.formatTitle(name))
+  },
+
+  // Check if a category exists
+  checkCategory: (state, getters) => (name) => {
+    return state.db.has('categories.' + wt.formatTitle(name))
   }
 }
 
