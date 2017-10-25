@@ -66,9 +66,9 @@ const mutations = {
   editCategoryArticle (state, payload) {
     let categories = state.db.get('categories')
     Object.keys(categories).forEach((key) => {
-      let index = categories[key].articles.indexOf(wt.formatTitle(payload.oldName))
+      let index = categories[key].articles.indexOf(payload.oldName)
       if (index !== -1) {
-        categories[key].articles[index] = wt.formatTitle(payload.newName)
+        categories[key].articles[index] = payload.newName
       }
     })
     state.db.set('categories', categories)
