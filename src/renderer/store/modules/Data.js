@@ -19,56 +19,56 @@ const mutations = {
     updateInformation(state)
   },
   addCategory (state, payload) {
-    if (!state.db.has('categories.' + payload.name)) {
-      state.db.set('categories.' + payload.name, payload)
+    if (!state.db.has('categories.' + wt.formatTitle(payload.name))) {
+      state.db.set('categories.' + wt.formatTitle(payload.name), payload)
     } else {
       console.error('Category not unique')
     }
     updateInformation(state)
   },
   addArticle (state, payload) {
-    if (!state.db.has('articles.' + payload.name)) {
-      state.db.set('articles.' + payload.name, payload)
+    if (!state.db.has('articles.' + wt.formatTitle(payload.name))) {
+      state.db.set('articles.' + wt.formatTitle(payload.name), payload)
     } else {
       console.error('Article not unique')
     }
     updateInformation(state)
   },
   removeCategory (state, payload) {
-    state.db.delete('categories.' + payload.name)
+    state.db.delete('categories.' + wt.formatTitle(payload.name))
     updateInformation(state)
   },
   removeArticle (state, payload) {
-    state.db.delete('articles.' + payload.name)
+    state.db.delete('articles.' + wt.formatTitle(payload.name))
     updateInformation(state)
   },
   addCategoryArticle (state, payload) {
-    let articles = state.db.get('categories.' + payload.category).articles
+    let articles = state.db.get('categories.' + wt.formatTitle(payload.category)).articles
     if (!articles.includes(payload.name)) {
       articles.push(payload.name)
-      state.db.set('categories.' + payload.category + '.articles', articles)
+      state.db.set('categories.' + wt.formatTitle(payload.category) + '.articles', articles)
       updateInformation(state)
     } else {
       console.error('Article already listed in category')
     }
   },
   removeCategoryArticle (state, payload) {
-    let articles = state.db.get('categories.' + payload.category).articles
+    let articles = state.db.get('categories.' + wt.formatTitle(payload.category)).articles
     articles = articles.filter((item) => {
       return !payload.articles.includes(item)
     })
-    state.db.set('categories.' + payload.category + '.articles', articles)
+    state.db.set('categories.' + wt.formatTitle(payload.category) + '.articles', articles)
     updateInformation(state)
   },
   editArticle (state, payload) {
-    state.db.set('articles.' + payload.name, payload)
+    state.db.set('articles.' + wt.formatTitle(payload.name), payload)
   },
   editCategoryArticle (state, payload) {
     let categories = state.db.get('categories')
     Object.keys(categories).forEach((key) => {
-      let index = categories[key].articles.indexOf(payload.oldName)
+      let index = categories[key].articles.indexOf(wt.formatTitle(payload.oldName))
       if (index !== -1) {
-        categories[key].articles[index] = payload.newName
+        categories[key].articles[index] = wt.formatTitle(payload.newName)
       }
     })
     state.db.set('categories', categories)
@@ -83,12 +83,12 @@ const actions = {
 const getters = {
   // Get a specific category's content
   getCategory: (state, getters) => (name) => {
-    return state.db.get('categories.' + name)
+    return state.db.get('categories.' + wt.formatTitle(name))
   },
 
   // Get a specific article's content
   getArticle: (state, getters) => (name) => {
-    const article = state.db.get('articles.' + name)
+    const article = state.db.get('articles.' + wt.formatTitle(name))
 
     // article.content = marked(article.content)
     article.raw = article.content
@@ -98,7 +98,7 @@ const getters = {
   
   // Check if an article exists in the wiki 
   checkArticle: (state, getters) => (name) => {
-    return state.db.has('articles.' + name)
+    return state.db.has('articles.' + wt.formatTitle(name))
   }
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link v-for="article in articles" v-bind:key="article" :to="{ name: 'article', params: { name: article }}">{{article}}</router-link>
+    <router-link v-for="article in articles" v-bind:key="article.name" :to="{ name: 'article', params: { name: article.name }}">{{article.name}}</router-link>
   </div>
 </template>
 
@@ -8,14 +8,7 @@
   export default {
     computed: {
       articles () {
-        const obj = this.$store.state.Data.articles
-        const articles = []
-
-        for (let item in obj) {
-          articles.push(item)
-        }
-        
-        return articles.sort()
+        return this.$store.state.Data.articles
       }
     }
   }
