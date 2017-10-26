@@ -4,7 +4,6 @@
     <router-link :to="{ name: 'article-edit', params: { name: article.name }}" id="edit-button">Edit</router-link>
     <hr>
     <div v-html="article.content"></div>
-    <button v-on:click="test()">test</button>
   </div>
 </template>
 
@@ -32,9 +31,6 @@
           let reg = new RegExp(`<a href='#/article/${arr[1]}'>`, 'g')
           this.article.content = this.article.content.replace(reg, `<a href='#/article/${arr[1]}' class='${ !this.$store.getters.checkArticle(arr[1]) ? 'no-exists' : '' }'>`)
         }
-      },
-      test () {
-        console.log(wt.formatTitle('This is a test. (Doggy\' eat poo)!'))
       }
     }
   }
