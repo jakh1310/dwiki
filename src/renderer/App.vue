@@ -9,7 +9,7 @@
       <div id="pane">
         <h1 id="wiki-title" class="title">{{ wikiTitle }}</h1>
         <router-link to="/" class="side-link">Main page</router-link>
-        <router-link to="/featured" class="side-link">Featured article</router-link>
+        <router-link to="/featured" class="side-link">Random article</router-link>
         <router-link to="/articles" class="side-link">All Articles</router-link>
         <router-link to="/categories" class="side-link">All Categories</router-link>
         <router-link to="/add/article" class="side-link">Add Article</router-link>
