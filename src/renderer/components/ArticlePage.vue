@@ -8,7 +8,20 @@
   export default {
     computed: {
       articles () {
-        return this.$store.state.Data.articles
+        const art = this.$store.state.Data.articles
+        let arr = []
+
+        Object.keys(art).forEach((key) => {
+          arr.push(art[key])
+        })
+
+        arr.sort((a, b) => {
+          let textA = a.name.toUpperCase()
+          let textB = b.name.toUpperCase()
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0
+        })
+
+        return arr
       }
     }
   }
