@@ -40,6 +40,13 @@ const mutations = {
   },
   removeArticle (state, payload) {
     state.db.delete('articles.' + wt.formatTitle(payload.name))
+    let categories = state.categories
+    Object.keys(categories).forEach((key) => {
+      categories[key].articles = categories[key].articles.filter((item) => {
+        return !(item === payload.name)
+      })
+    })
+    state.db.set('categories', categories)
     updateInformation(state)
   },
   addCategoryArticle (state, payload) {
