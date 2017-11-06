@@ -15,14 +15,7 @@
 </template>
 
 <script>
-  import { testData } from './test-data'
-
   export default {
-    data () {
-      return {
-        data: testData.categories
-      }
-    },
     computed: {
       categories () {
         return this.$store.state.Data.categories
