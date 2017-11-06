@@ -15,6 +15,7 @@
       </div>
     </div>
     <button v-on:click="submit()">Okay</button>
+    <div id="remove-button" v-on:click="removeCategory()">Remove</div>
   </div>
 </template>
 
@@ -65,6 +66,10 @@
           this.$store.commit('editCategory', category)
         }
         this.$router.replace('/categories')
+      },
+      removeCategory () {
+        this.$store.commit('removeCategory', { name: this.$route.params.name })
+        this.$router.replace('/categories')
       }
     },
     computed: {
@@ -82,6 +87,22 @@
   #temp
     height 100%
     width 100%
+
+  #remove-button
+    font-family 'Open Sans', sans
+    font-size 14px
+    line-height 20px
+    color $link
+    display block
+    text-decoration none
+    cursor pointer    
+    position absolute
+    text-align right
+    top 6px
+    right 20px
+
+    &:hover
+      text-decoration underline
 
   #cat-name
     border none
