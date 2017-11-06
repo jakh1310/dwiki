@@ -39,7 +39,7 @@
         } else {
           this.$store.commit('editArticle', article)
         }
-        this.$router.push('/article/' + article.name)
+        this.$router.replace('/article/' + article.name)
       }
     }
   }

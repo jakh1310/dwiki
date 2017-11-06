@@ -2,6 +2,7 @@
   <div>
     <h1 id="wiki-title">{{ article.name }}</h1>
     <router-link :to="{ name: 'article-edit', params: { name: article.name }}" id="edit-button">Edit</router-link>
+    <div id="remove-button" v-on:click="removeArticle()">Remove</div>
     <hr>
     <div v-html="article.content"></div>
   </div>
@@ -31,6 +32,10 @@
           let reg = new RegExp(`<a href='#/article/${arr[1]}'>`, 'g')
           this.article.content = this.article.content.replace(reg, `<a href='#/article/${arr[1]}' class='${ !this.$store.getters.checkArticle(arr[1]) ? 'no-exists' : '' }'>`)
         }
+      },
+      removeArticle () {
+        this.$store.commit('removeArticle', { name: this.$route.params.name })
+        this.$router.replace('/articles')
       }
     }
   }
@@ -46,7 +51,23 @@
     margin-top 3px
 
   p > a
-    display inline
+    display inline    
+    
+  #remove-button
+    font-family 'Open Sans', sans
+    font-size 14px
+    line-height 20px
+    color $link
+    display block
+    text-decoration none
+    cursor pointer    
+    position absolute
+    text-align right
+    top 6px
+    right 20px
+
+    &:hover
+      text-decoration underline
 
   #wiki-title
     //font-variant small-caps
@@ -75,8 +96,9 @@
   #edit-button
     position absolute
     text-align right
-    top 2px
-    right 20px
+    top 6px
+    right 80px
+    margin 0
 
   h1, h2, h3, h4
     font-family 'Merriweather', serif

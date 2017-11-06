@@ -64,7 +64,7 @@
         } else {
           this.$store.commit('editCategory', category)
         }
-        this.$router.push('/categories')
+        this.$router.replace('/categories')
       }
     },
     computed: {
