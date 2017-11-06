@@ -1,8 +1,22 @@
-# dwiki
+# Desktop Wiki
 
-> Desktop wiki
+Desktop Wiki is an [Electron](https://github.com/electron/electron) application very similar to Wikipedia. Instead of storing data on a server somewhere, it is all stored locally in a JSON file.
 
-#### Build Setup
+## Features
+
+### Current
+
+* Articles with Wikipedia-like syntax formatting
+* Categories to organize articles
+
+### Planned
+
+* Ability to add modules to customize application
+* Custom themes
+* Rich text editor
+* Expanded article features
+
+## Build Setup
 
 ``` bash
 # install dependencies
@@ -22,4 +36,4 @@ npm test
 
 ---
 
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[331f85f](https://github.com/SimulatedGREG/electron-vue/tree/331f85fd556cc0d60a30ad019a44a29baaed49f5) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
+This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
