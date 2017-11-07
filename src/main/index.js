@@ -30,7 +30,6 @@ function createWindow () {
   })
 
   mainWindow.webContents.on('new-window', (event, url) => {
-    console.log('poop')
     event.preventDefault()
     shell.openExternal(url)
   })
