@@ -39,10 +39,10 @@ Link types are divided into two different types: internal and external. Internal
 
 Input | Output
 --- | ---
-`[Internal Link]` | [Internal Link](https://github.com/jakh1310/dwiki)
-`[Internal Link \| Link]` | [Link](https://github.com/jakh1310/dwiki)
-`[[https://google.com]]` | https://google.com
-`[[https://google.com External Link]]` | [External Link](https://google.com)
+`[[Internal Link]]` | [Internal Link](https://github.com/jakh1310/dwiki)
+`[[Internal Link \| Link]]` | [Link](https://github.com/jakh1310/dwiki)
+`[https://google.com]` | https://google.com
+`[https://google.com External Link]` | [External Link](https://google.com)
 
 ## Build Setup
 
