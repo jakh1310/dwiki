@@ -19,6 +19,8 @@ Desktop Wiki is an [Electron](https://github.com/electron/electron) application 
 
 ## Syntax
 
+### Basic Formatting
+
 The formatting syntax is very similar to Wikipedia's syntax with some changes. Instead of `<s>` and `<u>` for strikethrough and underlining it is `~~` and `__` respectively.
 
 Input | Output
@@ -28,12 +30,19 @@ Input | Output
 `'''''Italics Bold'''''` | ___Italics Bold___
 `~~Strike~~` | ~~Strike~~
 `__Underline__` | Underline
-`[Local Link]` | [Local Link](https://github.com/jakh1310/dwiki)
-`[Local Link \| Named Local Link]` | [Named Local Link](https://github.com/jakh1310/dwiki)
-`[[https://google.com]]` | https://google.com
-`[[https://google.com Google]]` | [Google](https://google.com)
 
 Headers can also be achieved by using `==`, `===`, `====` around the header name. So `==Header 2==` would be a subsection of the article and also have a rule under it. Header sizes 3 and 4 are merely bolded and larger. Header 1 is reserved for the article title and isn't processed at all. 5 and 6 are unused as of now and will also not be processed.
+
+### Links
+
+Link types are divided into two different types: internal and external. Internal links only link to articles within the application itself. These are only used for other articles in the wiki. External links can be used to link to actual websites outside of the program. Internal links can be renamed by using the `|` character. External links only require a space after the website URL.
+
+Input | Output
+--- | ---
+`[Internal Link]` | [Internal Link](https://github.com/jakh1310/dwiki)
+`[Internal Link \| Link]` | [Link](https://github.com/jakh1310/dwiki)
+`[[https://google.com]]` | https://google.com
+`[[https://google.com External Link]]` | [External Link](https://google.com)
 
 ## Build Setup
 
