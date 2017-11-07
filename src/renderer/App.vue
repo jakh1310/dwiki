@@ -35,8 +35,7 @@
       }
     },
     created () {
-      //this.$store.commit('getAllDatabases')
-      this.$store.commit('startDB', { name: 'Aurellon' })
+      this.$store.commit('startDB', { name: 'Test Wiki' })
     },
     computed: {
       wikiTitle () {
