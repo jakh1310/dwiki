@@ -11,6 +11,7 @@ Desktop Wiki is an [Electron](https://github.com/electron/electron) application 
 
 ### Planned
 
+* An actual settings menu
 * Info boxes, embedded images (w/ captions)
 * Expanded article features including sub-articles
 * Lists and tables eventually
@@ -31,11 +32,11 @@ Input | Output
 `~~Strike~~` | ~~Strike~~
 `__Underline__` | Underline
 
-Headers can also be achieved by using `==`, `===`, `====` around the header name. So `==Header 2==` would be a subsection of the article and also have a rule under it. Header sizes 3 and 4 are merely bolded and larger. Header 1 is reserved for the article title and isn't processed at all. 5 and 6 are unused as of now and will also not be processed.
+Headers can also be made by using `==`, `===`, `====` around the header name. So `==Header 2==` would be a subsection of the article and also have a rule under it. Header sizes 3 and 4 are merely bolded and larger. Header 1 is reserved for the article title and isn't processed at all. 5 and 6 are unused as of now and will also not be processed.
 
 ### Links
 
-Link types are divided into two different types: internal and external. Internal links only link to articles within the application itself. These are only used for other articles in the wiki. External links can be used to link to actual websites outside of the program. Internal links can be renamed by using the `|` character. External links only require a space after the website URL.
+Links are divided into two different types: internal and external. Internal links only link to articles within the application itself. These are only used for other articles in the wiki. External links can be used to link to actual websites outside of the program. Internal links can be renamed by using the `|` character. External links only require a space after the website URL.
 
 Input | Output
 --- | ---
